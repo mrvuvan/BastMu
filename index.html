@@ -3,67 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bast-MuOnline-</title>
+    <title>MU BAST - MÁY CHỦ MỚI</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background: #000 url('https://photos.google.com/photo/AF1QipN4WrMbR-iLEf966OQ8m82GyL0jxfopNpgWS_db') no-repeat center center fixed;
+            background: #000 url('https://images2.alphacoders.com/516/516644.jpg') no-repeat center center fixed;
             background-size: cover;
-            body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Link ảnh nền MU chất lượng cao */
-    background: #000 url('https://images2.alphacoders.com/516/516644.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    text-align: center;
-}
+            color: white;
+            text-align: center;
+        }
+        .overlay {
+            background: rgba(0, 0, 0, 0.6); /* Làm mờ nền một chút để nổi bật nội dung */
+            min-height: 100vh;
+            display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
         .container {
-            max-width: 600px;
-            padding: 20px;
+            max-width: 500px;
+            padding: 40px 20px;
             border: 2px solid #d4af37;
-            background: rgba(20, 20, 20, 0.9);
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Hiệu ứng hào quang vàng */
         }
-        h1 { color: #d4af37; font-size: 3rem; margin-bottom: 10px; }
-        p { font-size: 1.2rem; margin-bottom: 30px; }
+        h1 { 
+            color: #d4af37; 
+            font-size: 3.5rem; 
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 5px #000;
+        }
+        .version {
+            color: #fff;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            display: block;
+        }
         .btn {
-            display: inline-block;
-            width: 80%;
-            padding: 15px;
-            margin: 10px 0;
-            font-size: 1.5rem;
+            display: block;
+            padding: 18px;
+            margin: 15px auto;
+            font-size: 1.4rem;
             font-weight: bold;
             text-decoration: none;
             color: #000;
-            background: #d4af37;
-            border-radius: 5px;
+            background: linear-gradient(to bottom, #f9df7b, #d4af37); /* Hiệu ứng màu vàng kim loại */
+            border-radius: 50px;
             transition: 0.3s;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
         }
-        .btn:hover { background: #fff; transform: scale(1.05); }
-        .btn-register { background: #555; color: #fff; }
-        .footer { margin-top: 30px; font-size: 0.9rem; color: #888; }
+        .btn:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.8);
+            filter: brightness(1.1);
+        }
+        .btn-sub { 
+            background: transparent; 
+            color: #d4af37; 
+            border: 1px solid #d4af37;
+            font-size: 1.1rem;
+        }
+        .btn-sub:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+        .footer { margin-top: 30px; font-size: 0.9rem; color: #aaa; }
     </style>
 </head>
 <body>
     <div class="overlay">
         <div class="container">
-            <h1>Bast-MuOnline</h1>
-            <p>Phiên bản Season 2 - No Reset</p>
+            <h1>BAST MU</h1>
+            <span class="version">SEASON 6 EPISODE 3</span>
             
-            <a href="https://mega.nz/file/e6w2gLyA#UvrHo9LVup2CU8YLvXvOA7TpzXG3W4lQDVBwXHpJxaw" class="btn">TẢI GAME NGAY</a>
-            
-            <a href="LINK_DANG_KY" class="btn btn-register">ĐĂNG KÝ TÀI KHOẢN</a>
+            <a href="LINK_TAI_GAME" class="btn">📥 TẢI GAME NGAY</a>
+            <a href="LINK_DANG_KY" class="btn btn-sub">📝 ĐĂNG KÝ TÀI KHOẢN</a>
+            <a href="LINK_FANPAGE" class="btn btn-sub">💬 HỖ TRỢ FANPAGE</a>
             
             <div class="footer">
-                <p>Hỗ trợ qua Fanpage | Tham gia cộng đồng Zalo</p>
+                <p>© 2026 BAST MU - TRÒ CHƠI GIẢI TRÍ MIỄN PHÍ</p>
             </div>
         </div>
     </div>
