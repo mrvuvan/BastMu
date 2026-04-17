@@ -11,14 +11,13 @@
             width: 100%;
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            /* 1. Sử dụng ảnh web.png làm nền */
+            /* Sử dụng ảnh web.png làm nền */
             background: #000 url('web.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* Lớp phủ mờ nhẹ để chữ nổi bật hơn (có thể chỉnh 0.2 thành 0 nếu muốn ảnh rõ hoàn toàn) */
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -26,7 +25,7 @@
             z-index: 1;
         }
 
-        /* 1. Menu điều hướng góc trên bên phải */
+        /* Menu điều hướng góc trên bên phải */
         .top-nav {
             position: absolute;
             top: 25px;
@@ -34,6 +33,8 @@
             z-index: 10;
             display: flex;
             gap: 15px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .nav-item {
@@ -56,7 +57,7 @@
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
         }
 
-        /* 2. Phần Text tùy ý ở giữa trên chữ BastVN MuOnline */
+        /* Phần Text tùy ý ở giữa */
         .custom-content {
             position: relative;
             z-index: 5;
@@ -66,18 +67,42 @@
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 0 15px;
         }
 
         .custom-text {
-            /* Vị trí được căn chỉnh để nằm ngay phía trên logo chính của ảnh */
+            /* Vị trí trên máy tính */
             margin-bottom: 320px; 
             font-size: 40px;
             font-weight: bold;
             text-transform: uppercase;
-            /* Màu vàng kim và hiệu ứng phát sáng */
             color: #d4af37;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.8), 2px 2px 4px #000;
             letter-spacing: 2px;
+        }
+
+        /* Tối ưu riêng cho điện thoại */
+        @media (max-width: 768px) {
+            .custom-text {
+                font-size: 20px; /* Nhỏ lại để vừa màn hình đứng */
+                margin-bottom: 220px; /* Nhích lên trên điện thoại */
+                letter-spacing: 1px;
+            }
+
+            .top-nav {
+                top: 15px;
+                right: 15px;
+                gap: 8px;
+            }
+
+            .nav-item {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            body, html {
+                background-attachment: scroll; /* Giúp mượt hơn trên mobile */
+            }
         }
     </style>
 </head>
@@ -93,20 +118,19 @@
 
     <div class="custom-content">
         <div class="custom-text">
-            Close Test : 17h00 Date 24/04/2026 - Open : 19h00 Date 24/04/2026
+            Close Test : 17h00 24/04/2026 - Open : 19h00 24/04/2026
         </div>
     </div>
-</body>
-    <audio autoplay loop id="bgMusic">
-    <source src="DPN.mp3" type="audio/mpeg">
-</audio>
 
-<script>
-    // Trình duyệt hiện nay thường chặn tự động phát nhạc, 
-    // đoạn này giúp nhạc phát ngay khi người dùng click bất kỳ đâu trên web
-    document.addEventListener('click', function() {
-        var audio = document.getElementById('bgMusic');
-        audio.play();
-    }, { once: true });
-</script>
+    <audio autoplay loop id="bgMusic">
+        <source src="DPN.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('bgMusic');
+            audio.play();
+        }, { once: true });
+    </script>
+</body>
 </html>
