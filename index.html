@@ -3,91 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BastMU - SEASON 2</title>
+    <title>BastMU - CHIẾN BINH THỨC TỈNH</title>
     <style>
-        body, html {
-            margin: 0; padding: 0;
-            width: 100%; height: 100%;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            /* Sử dụng trực tiếp ảnh gốc web.jpg để đảm bảo độ nét cao nhất */
-            background: #000 url('web.jpg') no-repeat center center fixed;
+        /* 1. NỀN VÀ FONT CHỮ */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+           background: #000 url('Background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            overflow: hidden;
-        }
-
-        /* 2. Điều hướng góc trên bên phải */
-        .top-nav {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            z-index: 10;
             display: flex;
-            gap: 10px;
-        }
-
-        .nav-item {
-            text-decoration: none;
-            color: #fff;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 8px 12px;
-            border-radius: 4px;
-            border: 1px solid rgba(212, 175, 55, 0.6);
-            font-size: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-item:hover {
-            background: #d4af37;
-            color: #000;
-        }
-
-        /* Khung chứa thông tin OpenBeta ghi đè lên ảnh */
-        .content-wrapper {
-            position: relative;
-            z-index: 5;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            pointer-events: none; /* Để không che khuất các click phía dưới nếu có */
+            min-height: 100vh;
         }
 
-        /* 1. Sửa giờ và ngày OpenBeta */
-        .open-info {
-            margin-top: -50px; /* Điều chỉnh vị trí để đè đúng vào dòng chữ cũ trên ảnh */
-            background: rgba(0, 0, 0, 0.8); /* Nền đen để che dòng chữ cũ trên ảnh */
-            padding: 10px 30px;
+        /* Lớp phủ làm tối nền để nổi bật chữ */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* 2. KHUNG NỘI DUNG CHÍNH */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 450px;
+            width: 90%;
+            padding: 40px;
+            background: rgba(15, 15, 15, 0.95);
+            border: 1px solid #444;
+            border-top: 3px solid #d4af37; /* Thanh vàng trên cùng */
             border-radius: 5px;
-            border: 1px solid #d4af37;
-            pointer-events: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            text-align: center;
         }
 
-        .open-text {
-            font-size: 22px;
-            font-weight: bold;
-            color: #fff;
+        h1 {
+            color: #d4af37;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        .server-info {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
-        .gold { color: #d4af37; }
+        /* 3. THÔNG SỐ SERVER (Mới thêm) */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        .stat-item b { color: #d4af37; display: block; font-size: 1.2rem; }
+        .stat-item span { font-size: 0.7rem; color: #aaa; }
 
-        /* Đã loại bỏ góc trên bên trái và góc dưới bên phải bằng cách không thêm code vào đó */
+        /* 4. NÚT BẤM CẢI TIẾN */
+        .btn {
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #d4af37 0%, #aa891e 100%);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            filter: brightness(1.2);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <div class="top-nav">
-        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="nav-item">DOWNLOAD</a>
-        <a href="https://www.facebook.com/groups/1260426852933240" class="nav-item">FACEBOOK</a>
-        <a href="https://zalo.me/g/geqwdl816" class="nav-item">ZALO</a>
-        <a href="#" class="nav-item">REGISTER</a>
-    </div>
+    <div class="overlay"></div>
 
-    <div class="content-wrapper">
-        <div class="open-info">
-            <span class="open-text">🚀 OPENBETA: <span class="gold">19H00 - 25/04/2026</span></span>
+    <div class="container">
+        <h1>BAST MU</h1>
+        <div class="server-info">Season 2 - No Reset</div>
+
+        <div class="stats">
+            <div class="stat-item"><b>1x</b><span>Kinh Nghiệm</span></div>
+            <div class="stat-item"><b>10%</b><span>Rơi Đồ</span></div>
+            <div class="stat-item"><b>1Acc / 1Ip</b><span>Ổn Định</span></div>
+        </div>
+        
+        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="btn btn-download" target="_blank">Download</a>
+        <a href="LINK_DANG_KY" class="btn btn-secondary" target="_blank">Create an account in Game</a>
+        <a href="https://www.facebook.com/groups/1260426852933240" class="btn btn-secondary" target="_blank">Group Facebook</a>
+        <a href="https://zalo.me/g/geqwdl816" class="btn btn-secondary" target="_blank">Group Zalo</a>
+
+        <div class="footer">
+            &copy; 2026 BastMu FREE All
         </div>
     </div>
 </body>
