@@ -3,50 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BastMU - SEASON 2 NO RESET</title>
+    <title>BastMU - SEASON 2</title>
     <style>
         body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: 'Segoe UI', sans-serif;
+            margin: 0; padding: 0;
+            width: 100%; height: 100%;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            /* Sử dụng trực tiếp ảnh gốc web.jpg để đảm bảo độ nét cao nhất */
             background: #000 url('web.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            overflow: hidden; /* Giữ giao diện gọn gàng trên một màn hình */
+            overflow: hidden;
         }
 
-        .overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.3); /* Độ mờ nhẹ để thấy rõ ảnh nền web.jpg */
-            z-index: 1;
-        }
-
-        /* 2. Phần điều hướng góc trên bên phải */
+        /* 2. Điều hướng góc trên bên phải */
         .top-nav {
             position: absolute;
             top: 20px;
             right: 30px;
             z-index: 10;
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
 
         .nav-item {
             text-decoration: none;
-            color: rgba(255, 255, 255, 0.8);
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px 15px;
-            border-radius: 5px;
-            border: 1px solid rgba(212, 175, 55, 0.5);
-            font-size: 0.9rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.6);
+            font-size: 12px;
             font-weight: bold;
             transition: 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
 
         .nav-item:hover {
@@ -54,8 +43,8 @@
             color: #000;
         }
 
-        /* Khung nội dung chính */
-        .main-content {
+        /* Khung chứa thông tin OpenBeta ghi đè lên ảnh */
+        .content-wrapper {
             position: relative;
             z-index: 5;
             height: 100vh;
@@ -63,74 +52,42 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            /* Yêu cầu trong suốt hoàn toàn */
-            background: transparent; 
+            pointer-events: none; /* Để không che khuất các click phía dưới nếu có */
         }
 
-        .header-title {
-            font-size: 2.8rem;
-            color: #d4af37;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
-        }
-
-        .sub-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 5px #000;
-        }
-
-        /* 1. Cập nhật ngày giờ Open mới */
-        .open-time {
-            background: rgba(212, 175, 55, 0.2);
+        /* 1. Sửa giờ và ngày OpenBeta */
+        .open-info {
+            margin-top: -50px; /* Điều chỉnh vị trí để đè đúng vào dòng chữ cũ trên ảnh */
+            background: rgba(0, 0, 0, 0.8); /* Nền đen để che dòng chữ cũ trên ảnh */
+            padding: 10px 30px;
+            border-radius: 5px;
             border: 1px solid #d4af37;
-            padding: 10px 20px;
-            font-size: 1.2rem;
+            pointer-events: auto;
+        }
+
+        .open-text {
+            font-size: 22px;
+            font-weight: bold;
             color: #fff;
-            border-radius: 50px;
-            margin-bottom: 40px;
+            text-transform: uppercase;
         }
 
-        .highlight-gold { color: #d4af37; font-weight: bold; }
+        .gold { color: #d4af37; }
 
-        .server-stats {
-            display: flex;
-            gap: 50px;
-            margin-top: 20px;
-        }
-
-        .stat-box b { display: block; font-size: 1.5rem; color: #d4af37; }
-        .stat-box span { font-size: 0.8rem; text-transform: uppercase; color: #ccc; }
-
-        /* Đã loại bỏ các nút tin nhắn/zalo ở góc dưới bên phải */
+        /* Đã loại bỏ góc trên bên trái và góc dưới bên phải bằng cách không thêm code vào đó */
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
-
     <div class="top-nav">
-        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="nav-item" target="_blank">📥 DOWNLOAD</a>
-        <a href="https://www.facebook.com/groups/1260426852933240" class="nav-item" target="_blank">👥 FACEBOOK</a>
-        <a href="https://zalo.me/g/geqwdl816" class="nav-item" target="_blank">💬 ZALO</a>
-        <a href="LINK_DANG_KY" class="nav-item" target="_blank">🔑 ĐĂNG KÝ</a>
+        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="nav-item">DOWNLOAD</a>
+        <a href="https://www.facebook.com/groups/1260426852933240" class="nav-item">FACEBOOK</a>
+        <a href="https://zalo.me/g/geqwdl816" class="nav-item">ZALO</a>
+        <a href="#" class="nav-item">REGISTER</a>
     </div>
 
-    <div class="main-content">
-        <h1 class="header-title">BastVN MuOnline</h1>
-        <div class="sub-title">1 SUB DUY NHẤT: 1 ACC / 1 IP</div>
-
-        <div class="open-time">
-            🚀 OPENBETA: <span class="highlight-gold">17H00 NGÀY 25/04/2026</span>
-        </div>
-
-        <div class="server-stats">
-            <div class="stat-box"><b>1x</b><span>Exp</span></div>
-            <div class="stat-box"><b>20%</b><span>Drop</span></div>
-            <div class="stat-box"><b>Season 2</b><span>Classic</span></div>
+    <div class="content-wrapper">
+        <div class="open-info">
+            <span class="open-text">🚀 OPENBETA: <span class="gold">19H00 - 25/04/2026</span></span>
         </div>
     </div>
 </body>
