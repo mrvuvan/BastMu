@@ -83,11 +83,20 @@
 
         /* Tối ưu riêng cho điện thoại */
         @media (max-width: 768px) {
-            .custom-text {
-                font-size: 20px; /* Nhỏ lại để vừa màn hình đứng */
-                margin-bottom: 180px; /* Nhích lên trên điện thoại */
-                letter-spacing: 1px;
-            }
+           .custom-text {
+            /* Vị trí trên máy tính */
+            margin-bottom: 120px; 
+            font-size: 42px;
+            font-weight: bold;
+            text-transform: uppercase;
+            
+            /* ĐỔI MÀU CHỮ SANG TRẮNG TẠI ĐÂY */
+            color: #ffffff; 
+            
+            /* Hiệu ứng bóng đổ để chữ trắng nổi bật trên nền ảnh */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 2px 2px 4px #000;
+            letter-spacing: 2px;
+        }
 
             .top-nav {
                 top: 15px;
