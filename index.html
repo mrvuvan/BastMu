@@ -3,89 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MU BAST - MÁY CHỦ MỚI</title>
+    <title>BastMU - CHIẾN BINH THỨC TỈNH</title>
     <style>
+        /* 1. NỀN VÀ FONT CHỮ */
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background: #000 url('Background.jpg') no-repeat center center fixed;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+           background: #000 url('Background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            text-align: center;
-        }
-        .overlay {
-            background: rgba(0, 0, 0, 0.6); /* Làm mờ nền một chút để nổi bật nội dung */
-            min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
         }
+
+        /* Lớp phủ làm tối nền để nổi bật chữ */
+        .overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        /* 2. KHUNG NỘI DUNG CHÍNH */
         .container {
-            max-width: 500px;
-            padding: 40px 20px;
-            border: 2px solid #d4af37;
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Hiệu ứng hào quang vàng */
+            position: relative;
+            z-index: 2;
+            max-width: 450px;
+            width: 90%;
+            padding: 40px;
+            background: rgba(15, 15, 15, 0.95);
+            border: 1px solid #444;
+            border-top: 3px solid #d4af37; /* Thanh vàng trên cùng */
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            text-align: center;
         }
-        h1 { 
-            color: #d4af37; 
-            font-size: 3.5rem; 
+
+        h1 {
+            color: #d4af37;
+            font-size: 2.5rem;
+            text-transform: uppercase;
             margin-bottom: 5px;
-            text-shadow: 2px 2px 5px #000;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
-        .version {
-            color: #fff;
-            letter-spacing: 3px;
+
+        .server-info {
+            color: #888;
+            font-size: 0.9rem;
             margin-bottom: 30px;
-            display: block;
+            text-transform: uppercase;
         }
+
+        /* 3. THÔNG SỐ SERVER (Mới thêm) */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        .stat-item b { color: #d4af37; display: block; font-size: 1.2rem; }
+        .stat-item span { font-size: 0.7rem; color: #aaa; }
+
+        /* 4. NÚT BẤM CẢI TIẾN */
         .btn {
             display: block;
-            padding: 18px;
-            margin: 15px auto;
-            font-size: 1.4rem;
-            font-weight: bold;
             text-decoration: none;
-            color: #000;
-            background: linear-gradient(to bottom, #f9df7b, #d4af37); /* Hiệu ứng màu vàng kim loại */
-            border-radius: 50px;
-            transition: 0.3s;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 3px;
+            font-weight: bold;
             text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            font-size: 1rem;
         }
-        .btn:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.8);
-            filter: brightness(1.1);
+
+        .btn-download {
+            background: linear-gradient(135deg, #d4af37 0%, #aa891e 100%);
+            color: #000;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
-        .btn-sub { 
-            background: transparent; 
-            color: #d4af37; 
-            border: 1px solid #d4af37;
-            font-size: 1.1rem;
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+            filter: brightness(1.2);
         }
-        .btn-sub:hover {
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            border: 1px solid #444;
+        }
+
+        .btn-secondary:hover {
             background: rgba(212, 175, 55, 0.1);
+            border-color: #d4af37;
+            color: #d4af37;
         }
-        .footer { margin-top: 30px; font-size: 0.9rem; color: #aaa; }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
     </style>
 </head>
 <body>
-    <div class="overlay">
-        <div class="container">
-            <h1>BAST MU</h1>
-            <span class="version">SEASON 2 No Reset</span>
-            
-            <a href="https://byvn.net/bxpN" class="btn">📥 TẢI GAME NGAY</a>
-            <a href="https://zalo.me/g/geqwdl816" class="btn btn-sub">📝 Group Zalo</a>
-            <a href="https://www.facebook.com/groups/1260426852933240" class="btn btn-sub">💬 Group Facebook</a>
-            
-            <div class="footer">
-                <p>© MuOnline 2006 - MIỄN PHÍ- CÀY CUỐC</p>
-            </div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <h1>BAST MU</h1>
+        <div class="server-info">Season 6 Ep 3 - Classic</div>
+
+        <div class="stats">
+            <div class="stat-item"><b>999x</b><span>Kinh Nghiệm</span></div>
+            <div class="stat-item"><b>40%</b><span>Rơi Đồ</span></div>
+            <div class="stat-item"><b>10/10</b><span>Ổn Định</span></div>
+        </div>
+        
+        <a href="LINK_MEGA_CUA_BAN" class="btn btn-download" target="_blank">Tải Game Ngay</a>
+        <a href="LINK_DANG_KY" class="btn btn-secondary" target="_blank">Đăng Ký Tài Khoản</a>
+        <a href="LINK_FANPAGE" class="btn btn-secondary" target="_blank">Cộng Đồng Fanpage</a>
+        <a href="https://zalo.me/so-dien-thoai" class="btn btn-secondary" target="_blank">Hỗ Trợ Zalo</a>
+
+        <div class="footer">
+            &copy; 2026 BastMu. All rights reserved.
         </div>
     </div>
 </body>
