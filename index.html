@@ -3,151 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BastMU - CHIẾN BINH THỨC TỈNH</title>
+    <title>BastMU - SEASON 2 NO RESET</title>
     <style>
-        /* 1. NỀN VÀ FONT CHỮ */
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-           background: #000 url('Background.jpg') no-repeat center center fixed;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background: #000 url('web.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            overflow: hidden; /* Giữ giao diện gọn gàng trên một màn hình */
         }
 
-        /* Lớp phủ làm tối nền để nổi bật chữ */
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.3); /* Độ mờ nhẹ để thấy rõ ảnh nền web.jpg */
             z-index: 1;
         }
 
-        /* 2. KHUNG NỘI DUNG CHÍNH */
-        .container {
-    position: relative;
-    z-index: 2;
-    max-width: 450px;
-    width: 90%;
-    padding: 40px;
-    
-    /* CHỈNH TRONG SUỐT Ở ĐÂY */
-    background: rgba(0, 0, 0, 0.4); /* 0.4 là độ trong suốt 60% */
-    
-    /* Hiệu ứng kính mờ (Glassmorphism) */
-    backdrop-filter: blur(10px); 
-    -webkit-backdrop-filter: blur(10px);
-    
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Viền mờ nhẹ */
-    border-top: 3px solid #d4af37; /* Giữ lại thanh vàng trên cùng làm điểm nhấn */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    text-align: center;
-}
-
-/* Nếu bạn muốn ảnh nền sáng hơn, hãy sửa thêm lớp .overlay (khoảng dòng 22) */
-.overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Giảm từ 0.7 xuống 0.4 để nền sáng hơn */
-    z-index: 1;
-}
-        h1 {
-            color: #d4af37;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-        }
-
-        .server-info {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        /* 3. THÔNG SỐ SERVER (Mới thêm) */
-        .stats {
+        /* 2. Phần điều hướng góc trên bên phải */
+        .top-nav {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 10;
             display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
-            padding: 15px 0;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+            gap: 15px;
         }
-        .stat-item b { color: #d4af37; display: block; font-size: 1.2rem; }
-        .stat-item span { font-size: 0.7rem; color: #aaa; }
 
-        /* 4. NÚT BẤM CẢI TIẾN */
-        .btn {
-            display: block;
+        .nav-item {
             text-decoration: none;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 3px;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            font-size: 0.9rem;
             font-weight: bold;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            font-size: 1rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .btn-download {
-            background: linear-gradient(135deg, #d4af37 0%, #aa891e 100%);
+        .nav-item:hover {
+            background: #d4af37;
             color: #000;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
 
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-            filter: brightness(1.2);
+        /* Khung nội dung chính */
+        .main-content {
+            position: relative;
+            z-index: 5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* Yêu cầu trong suốt hoàn toàn */
+            background: transparent; 
         }
 
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border: 1px solid #444;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
+        .header-title {
+            font-size: 2.8rem;
             color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.8);
         }
 
-        .footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #555;
+        .sub-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 5px #000;
         }
+
+        /* 1. Cập nhật ngày giờ Open mới */
+        .open-time {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid #d4af37;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            color: #fff;
+            border-radius: 50px;
+            margin-bottom: 40px;
+        }
+
+        .highlight-gold { color: #d4af37; font-weight: bold; }
+
+        .server-stats {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+        }
+
+        .stat-box b { display: block; font-size: 1.5rem; color: #d4af37; }
+        .stat-box span { font-size: 0.8rem; text-transform: uppercase; color: #ccc; }
+
+        /* Đã loại bỏ các nút tin nhắn/zalo ở góc dưới bên phải */
     </style>
 </head>
 <body>
     <div class="overlay"></div>
 
-    <div class="container">
-        <h1>BAST MU</h1>
-        <div class="server-info">Season 2 - No Reset</div>
+    <div class="top-nav">
+        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="nav-item" target="_blank">📥 DOWNLOAD</a>
+        <a href="https://www.facebook.com/groups/1260426852933240" class="nav-item" target="_blank">👥 FACEBOOK</a>
+        <a href="https://zalo.me/g/geqwdl816" class="nav-item" target="_blank">💬 ZALO</a>
+        <a href="LINK_DANG_KY" class="nav-item" target="_blank">🔑 ĐĂNG KÝ</a>
+    </div>
 
-        <div class="stats">
-            <div class="stat-item"><b>1x</b><span>Kinh Nghiệm</span></div>
-            <div class="stat-item"><b>10%</b><span>Rơi Đồ</span></div>
-            <div class="stat-item"><b>1Acc / 1Ip</b><span>Ổn Định</span></div>
+    <div class="main-content">
+        <h1 class="header-title">BastVN MuOnline</h1>
+        <div class="sub-title">1 SUB DUY NHẤT: 1 ACC / 1 IP</div>
+
+        <div class="open-time">
+            🚀 OPENBETA: <span class="highlight-gold">17H00 NGÀY 25/04/2026</span>
         </div>
-        
-        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="btn btn-download" target="_blank">Download</a>
-        <a href="LINK_DANG_KY" class="btn btn-secondary" target="_blank">Create an account in Game</a>
-        <a href="https://www.facebook.com/groups/1260426852933240" class="btn btn-secondary" target="_blank">Group Facebook</a>
-        <a href="https://zalo.me/g/geqwdl816" class="btn btn-secondary" target="_blank">Group Zalo</a>
 
-        <div class="footer">
-            &copy; 2026 BastMu FREE All
+        <div class="server-stats">
+            <div class="stat-box"><b>1x</b><span>Exp</span></div>
+            <div class="stat-box"><b>20%</b><span>Drop</span></div>
+            <div class="stat-box"><b>Season 2</b><span>Classic</span></div>
         </div>
     </div>
 </body>
