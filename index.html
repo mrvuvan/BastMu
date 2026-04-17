@@ -3,137 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BastMU - CHIẾN BINH THỨC TỈNH</title>
+    <title>BastVN MuOnline</title>
     <style>
-        /* 1. NỀN VÀ FONT CHỮ */
-        body {
+        body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-           background: #000 url('Background.jpg') no-repeat center center fixed;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* 1. Sử dụng ảnh web.png làm nền */
+            background: #000 url('web.png') no-repeat center center fixed;
             background-size: cover;
             color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            overflow: hidden;
         }
 
-        /* Lớp phủ làm tối nền để nổi bật chữ */
+        /* Lớp phủ mờ nhẹ để chữ nổi bật hơn (có thể chỉnh 0.2 thành 0 nếu muốn ảnh rõ hoàn toàn) */
         .overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
 
-        /* 2. KHUNG NỘI DUNG CHÍNH */
-        .container {
+        /* 1. Menu điều hướng góc trên bên phải */
+        .top-nav {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            z-index: 10;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #EEE;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            font-size: 14px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .nav-item:hover {
+            background: #d4af37;
+            color: #000;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+        }
+
+        /* 2. Phần Text tùy ý ở giữa trên chữ BastVN MuOnline */
+        .custom-content {
             position: relative;
-            z-index: 2;
-            max-width: 450px;
-            width: 90%;
-            padding: 40px;
-            background: rgba(15, 15, 15, 0.95);
-            border: 1px solid #444;
-            border-top: 3px solid #d4af37; /* Thanh vàng trên cùng */
-            border-radius: 5px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            z-index: 5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
-        h1 {
-            color: #d4af37;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-        }
-
-        .server-info {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        /* 3. THÔNG SỐ SERVER (Mới thêm) */
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin-bottom: 30px;
-            padding: 15px 0;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-        }
-        .stat-item b { color: #d4af37; display: block; font-size: 1.2rem; }
-        .stat-item span { font-size: 0.7rem; color: #aaa; }
-
-        /* 4. NÚT BẤM CẢI TIẾN */
-        .btn {
-            display: block;
-            text-decoration: none;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 3px;
+        .custom-text {
+            /* Vị trí được căn chỉnh để nằm ngay phía trên logo chính của ảnh */
+            margin-bottom: 250px; 
+            font-size: 28px;
             font-weight: bold;
             text-transform: uppercase;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .btn-download {
-            background: linear-gradient(135deg, #d4af37 0%, #aa891e 100%);
-            color: #000;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-            filter: brightness(1.2);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            border: 1px solid #444;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(212, 175, 55, 0.1);
-            border-color: #d4af37;
+            /* Màu vàng kim và hiệu ứng phát sáng */
             color: #d4af37;
-        }
-
-        .footer {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #555;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.8), 2px 2px 4px #000;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
     <div class="overlay"></div>
 
-    <div class="container">
-        <h1>BAST MU</h1>
-        <div class="server-info">Season 2 - No Reset</div>
+    <div class="top-nav">
+        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="nav-item" target="_blank">Download</a>
+        <a href="https://zalo.me/g/geqwdl816" class="nav-item" target="_blank">Nhóm Zalo</a>
+        <a href="https://www.facebook.com/groups/1260426852933240" class="nav-item" target="_blank">Facebook</a>
+        <a href="#" class="nav-item">Đăng Ký</a>
+    </div>
 
-        <div class="stats">
-            <div class="stat-item"><b>1x</b><span>Kinh Nghiệm</span></div>
-            <div class="stat-item"><b>10%</b><span>Rơi Đồ</span></div>
-            <div class="stat-item"><b>1Acc / 1Ip</b><span>Ổn Định</span></div>
-        </div>
-        
-        <a href="https://mega.nz/file/vnA2zLib#FPDefzIK4jTmA3cZGAVd0tqV2k_NvTy1atHp8zxzeVs" class="btn btn-download" target="_blank">Download</a>
-        <a href="LINK_DANG_KY" class="btn btn-secondary" target="_blank">Create an account in Game</a>
-        <a href="https://www.facebook.com/groups/1260426852933240" class="btn btn-secondary" target="_blank">Group Facebook</a>
-        <a href="https://zalo.me/g/geqwdl816" class="btn btn-secondary" target="_blank">Group Zalo</a>
-
-        <div class="footer">
-            &copy; 2026 BastMu FREE All
+    <div class="custom-content">
+        <div class="custom-text">
+            MÁY CHỦ OPEN: 19H00 - 25/04/2026
         </div>
     </div>
 </body>
