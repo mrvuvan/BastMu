@@ -2,13 +2,13 @@
 <html lang="vi">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18105319035"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18105319035');
+    </script>
 
-  gtag('config', 'AW-18105319035');
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BastVN MuOnline</title>
@@ -19,6 +19,7 @@
             width: 100%;
             height: 100%;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* NỀN CHO MÁY TÍNH */
             background: #000 url('123.PNG') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -45,7 +46,6 @@
 
         .nav-item {
             text-decoration: none;
-            /* Đổi toàn bộ chữ trên nút thành màu trắng */
             color: #ffffff; 
             background: rgba(0, 0, 0, 0.5);
             padding: 10px 20px;
@@ -81,37 +81,38 @@
             font-size: 46px;
             font-weight: bold;
             text-transform: uppercase;
-            /* Đổi màu chữ thông báo chính thành màu trắng */
             color: #ffffff; 
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 2px 2px 4px #000;
             letter-spacing: 2px;
         }
 
+        /* TÙY CHỈNH GIAO DIỆN CHO MOBILE */
         @media (max-width: 768px) {
-           .custom-text {
-                margin-bottom: 10px; 
-                font-size: 24px; /* Điều chỉnh lại cỡ chữ mobile cho cân đối */
+            body, html {
+                /* ĐỔI ẢNH NỀN SANG BẢN DỌC CHO MOBILE */
+                background: #000 url('mobile.png') no-repeat center center scroll;
+                background-size: cover;
+            }
+
+            .custom-text {
+                margin-bottom: 20px; 
+                font-size: 24px;
                 color: #ffffff; 
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 2px 2px 4px #000;
             }
 
             .top-nav {
                 top: 15px;
                 right: 15px;
                 gap: 8px;
+                justify-content: center; /* Căn giữa menu trên mobile cho dễ nhìn */
             }
 
             .nav-item {
                 padding: 6px 12px;
                 font-size: 11px;
             }
-
-            body, html {
-                background-attachment: scroll;
-            }
         }
     </style>
-    
 </head>
 <body>
     <div class="overlay"></div>
@@ -120,9 +121,9 @@
         <a href="https://mega.nz/file/aqgQHASQ#Qe68xji9zEUEQWBCJmRBX0KM-XfS2TmJ6bceL7NiybE" class="nav-item" target="_blank">Download Pro</a>
         <a href="https://mega.nz/file/PrhA0TxA#n2w71Y0mszAMbgUb424Z0TmIlLzxDHPZshKfCc-__Ds" class="nav-item" target="_blank">Download Lite</a>
         
-        <a href="https://drive.google.com/file/d/1ew83AEljQcjpkDtWWlvCle2YT2rV3eYZ/view?usp=drive_link" class="nav-item" target="_blank">Link Google</a>
+        <a href="https://drive.google.com/file/d/1ew83AEljQcjpkDtWWlvCle2YT2rV3eYZ/view?usp=drive_link">Link Google</a>
         
-        <a href="https://zalo.me/g/edtlyymdrxrxytezkcvz" class="nav-item" target="_blank">Group Zalo</a>
+        <a href="https://https://zalo.me/g/edtlyymdrxrxytezkcvz" class="nav-item" target="_blank">Group Zalo</a>
         <a href="https://www.facebook.com/groups/1260426852933240" class="nav-item" target="_blank">Group Facebook</a>
         <a href="https://discord.com/invite/pMhTbsQB" class="nav-item" target="_blank">Discord</a>
     </div>
